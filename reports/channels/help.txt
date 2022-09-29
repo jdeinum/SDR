@@ -1,0 +1,167 @@
+startPeriodicSingleScan() -> start a scan and set up interval for next one
+
+|
+v
+
+startSingleScan() -> does a single full band scan
+
+|
+v
+
+startForcedSingleScan() 
+    getScanBand() -> most newer phones will scan 2.4 / 5 / DFS
+
+|
+v
+
+WiFiScanner.startScan() -> sends a message to scan on an async channel
+
+|
+v
+
+handleScanStartMessage() -> The end of this chain?
+    mPendingScans.addRequest() -> add the scan request to the pending requests
+
+    mActiveScans.addRequest() ->  If the current scan can satisfy this request
+                                  then we are happy
+
+
+
+
+
+
+
+The only place where pendingRequests are handled is:
+
+
+
+tryToStartNewScan() -> 
+    mChannelHelper.createChannelCollection()
+
+    addChannels() 
+
+    channels.fillBucketSettings()
+
+
+|
+v
+
+
+mScannerImplsTracker.startSingleScan()
+
+|
+v
+
+WifiScannerImpl.startSingleScan() -> overwritten by 2 different classes, I focus on 1
+    mChannelHelper.createChannelCollection()
+
+    ChannelCollection.addChannels()
+
+
+|
+v
+
+mWifiNative.scan()
+
+
+|
+v
+
+
+mWifiCondManager.startScan() -> creates a channel collection from the passed
+                                frequencies, and then moves on to the next fun
+
+|
+v
+
+IWifiScannerImpl.scan() -> sends command to interface using lower level
+                           functions
+
+|
+v
+
+
+mRemote.transact()
+
+
+|
+v
+
+????
+
+
+
+
+
+
+Chain 3: Least likely
+
+
+
+BackgroundScanScheduler.updateSchedule()
+
+
+Which is called from:
+
+
+WifiScannerServiceImpl.updateSchedule()
+
+
+Which is called from WifiScannerServiceImpl.addBackgroundScanRequest()
+
+
+Which is called when the WiFiScanner receieves a CMD_START_BACKGROUND_SCAN
+message
+
+
+Which is called from startBackgroundScan, which is depreciated.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
