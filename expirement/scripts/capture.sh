@@ -167,7 +167,7 @@ tcpdump -r  combined.pcap -tt --time-stamp-precision=nano  2> /dev/null |
 awk 'NR == 1{old = $1; old_c = $4; next} 
   {print $1 - old, old_c, $4; old = $1; old_c = $4; }' |
 awk ' {gsub(2412,1); gsub(2437,6); gsub(2462,11); print $0 }' |
-tail -n +2 > timestamps.txt
+tail -n + 2 > timestamps.txt
 
 
 
