@@ -340,15 +340,6 @@ So we try the scan every 2 seconds up to 5 times.
 
 
 
-
-
-
-
-
-
-
----
-
 The other option for scans is to pass a sequence of channels to scan. If this is
 the case, then it is directly passed to lower level scanning functions. The
 channel shuffling must occur at the lower level somewhere since the same flags
