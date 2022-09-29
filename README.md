@@ -421,14 +421,6 @@ public static final int MAX_SCAN_RESTART_ALLOWED = 5;
 So we try the scan every 2 seconds up to 5 times.
 
 
-The scanning procedure can be represented as a finite state machine, shown here:
-
-INSERT IMAGE
-
-
-
-
-
 # Setting Up
 Given that this experiment is very sensitive to other network noise, the first
 step is finding a suitably quiet location to conduct the experiment. This step
