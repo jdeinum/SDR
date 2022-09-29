@@ -20,7 +20,6 @@ access points reply to. Our research focus is on determining if the message
 pattern for the initiating devices can uniquely identify it in a public
 environment.
 
-
 # Purpose
 The primary purpose of this research is for organizations to determine the
 number of unique devices in an area. Since most people only carry one device
@@ -38,8 +37,6 @@ The experiment will be broken up into several stages:
 3. Determining the effectiveness of our research in a potential use case (i.e a
    park)
 
-The rest of the document will focus on stage 1.
-
 
 # Background
 This section will cover some background information relative to the project. If
@@ -52,7 +49,6 @@ While we will eventually be scanning both the 2.4GHz and the 5GHz channels, we
 will focus our attention on the 2.4GHz spectrum for this section. 
 
 ![The 2.4GHz Spectrum](./images/two_four.png) 
-
 
 The main channels in use are the ones that provide non overlapping intervals.
 These are shown in the image above by the bold circles on channels 1, 6, and

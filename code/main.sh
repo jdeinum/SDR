@@ -108,3 +108,7 @@ rm combined.pcap;
 if [[ $ANALYZE ]]; then
     python3 analyze.py cleaned.txt
 fi
+
+sudo ip link set wlp0s20f0u1u1 down
+sudo ip link set wlp0s20f0u1u2 down
+sudo ip link set wlp0s20f0u1u3 down
