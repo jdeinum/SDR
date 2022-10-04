@@ -116,8 +116,8 @@ after setting it. Finding
 public static final int config_wifiPnoWatchdogIntervalMs=0x7f050040;
 ```
 
-Since we don't access to their RO data, we trust the docs which state that Which
-state that this is once every 20 minutes.
+Since we don't access to their RO data, we trust the docs which state that 
+this is once every 20 minutes.
 
 #### Periodic Scans
 
@@ -422,7 +422,7 @@ So we try the scan every 2 seconds up to 5 times.
 
 
 # Setting Up
-Given that this experiment is very sensitive to other network noise, the first
+Given that this experiment is sensitive to other network noise, the first
 step is finding a suitably quiet location to conduct the experiment. This step
 is optional but may improve results.
 
