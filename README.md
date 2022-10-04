@@ -518,6 +518,25 @@ inter-arrival times that are greater than 1 second apart since these times are
 so large that they will pollute our analysis. 
 
 
+
+# Analysis
+Given our dataset, there are several things we must do:
+- clean the data (remove outliers)
+- generate visuals (histograms, box plots, etc) for reasoning
+- generate synthetic data to match our data against other common distributions 
+- finding if our data is significant using some statistical testing
+- compare the intra-scan time against the expected time (which we found from the
+  android source code)
+- basic summary tests
+- an idea of how we will model this to recognize a device in the field
+
+
+
+
+
+
+
+
 # Results
 
 
