@@ -422,9 +422,6 @@ So we try the scan every 2 seconds up to 5 times.
 
 
 # Setting Up
-Given that this experiment is sensitive to other network noise, the first
-step is finding a suitably quiet location to conduct the experiment. This step
-is optional but may improve results.
 
 # The Experiment
 There are 3 capture processes in our experiment:
