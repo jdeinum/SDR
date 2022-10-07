@@ -93,18 +93,7 @@ done
 # CLEAN
 
 # combine pcap files into a single file and remove the uneccessary stuff
-mergecap -w "combined.pcap" *.pcap
-
-# write the time stamps to a file
-tcpdump -r  combined.pcap -tt --time-stamp-precision=nano  2> /dev/null |
-awk ' {gsub(2412,1); gsub(2437,6); gsub(2462,11); print $0 }' |
-tail -n + 2 > cleaned.txt
-
-
-# run analysis if desired
-# if [[ $ANALYZE ]]; then
-#     python3 analyze.py cleaned.txt
-# fi
+mergecap -w $OFILE *.pcap
 
 sudo ip link set wlp0s20f0u1u1 down
 sudo ip link set wlp0s20f0u1u2 down
