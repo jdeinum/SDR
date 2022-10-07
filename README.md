@@ -1,5 +1,4 @@
 ![Title](./images/title.png) 
-ddw
 
 # Table of Contents
 - [Overview](#overview)
