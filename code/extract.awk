@@ -31,7 +31,7 @@ function sub_channel(freq) {
 
 
 }
-printf "%f %d %d\n", $1, sub_channel($channel), $signal * -1
+printf "%f %d %d\n", $1, sub_channel($channel), $signal 
 
 }
 
