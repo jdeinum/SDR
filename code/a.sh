@@ -1,10 +1,10 @@
-./clean_unknown.sh ../data/sample6.pcap ../data/sample6.txt
-./clean_unknown.sh ../data/sample7.pcap ../data/sample7.txt
-./clean_unknown.sh ../data/sample8.pcap ../data/sample8.txt
-./clean_unknown.sh ../data/sample9.pcap ../data/sample9.txt
-./clean_unknown.sh ../data/sample10.pcap ../data/sample10.txt
-./clean_unknown.sh ../data/sample11.pcap ../data/sample11.txt
-./clean_unknown.sh ../data/sample12.pcap ../data/sample12.txt
-./clean_unknown.sh ../data/sample13.pcap ../data/sample13.txt
-./clean_unknown.sh ../data/sample14.pcap ../data/sample14.txt
-./clean_unknown.sh ../data/sample15.pcap ../data/sample15.txt
+./clean_unknown.sh ../data/sample6.pcap > ../data/sample6.txt
+./clean_unknown.sh ../data/sample7.pcap > ../data/sample7.txt
+./clean_unknown.sh ../data/sample8.pcap > ../data/sample8.txt
+./clean_unknown.sh ../data/sample9.pcap > ../data/sample9.txt
+./clean_unknown.sh ../data/sample10.pcap > ../data/sample10.txt
+./clean_unknown.sh ../data/sample11.pcap > ../data/sample11.txt
+./clean_unknown.sh ../data/sample12.pcap > ../data/sample12.txt
+./clean_unknown.sh ../data/sample13.pcap > ../data/sample13.txt
+./clean_unknown.sh ../data/sample14.pcap > ../data/sample14.txt
+./clean_unknown.sh ../data/sample15.pcap > ../data/sample15.txt
