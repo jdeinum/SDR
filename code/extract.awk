@@ -14,11 +14,16 @@ function sub_channel(freq) {
 
 
 {for (i = 1 ; i < NF ; i += 1) {
-  if (i == 1)
+  if (i == 1) {
     signal_seen = 0
+    channel_seen = 0
 
-  if ($i ~ /^[0-9][0-9][0-9][0-9]$/) {
+    }
+
+
+  if ($i ~ /^[0-9][0-9][0-9][0-9]$/ && channel_seen == 0) {
     channel = i
+    channel_seen = 1
   }
 
 
