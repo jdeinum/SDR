@@ -53,32 +53,32 @@ shift $(($OPTIND - 1))
 # Prepare Capture
 
 # disable all of the monitor interfaces
-sudo ip link set wlx00127b216d3c down
-sudo ip link set wlx00127b216d43 down
-sudo ip link set wlx00127b216d31 down
+sudo ip link set wlx00127b216d36 down
+sudo ip link set wlx00127b216d1e down
+sudo ip link set wlx00127b216d41 down
 
 # set each device to monitor mode
-sudo iw wlx00127b216d3c set monitor fcsfail
-sudo iw wlx00127b216d43 set monitor fcsfail
-sudo iw wlx00127b216d31 set monitor fcsfail
+sudo iw wlx00127b216d36 set monitor fcsfail
+sudo iw wlx00127b216d1e set monitor fcsfail
+sudo iw wlx00127b216d41 set monitor fcsfail
 
 # enable each device again
-sudo ip link set wlx00127b216d3c up
-sudo ip link set wlx00127b216d43 up
-sudo ip link set wlx00127b216d31 up
+sudo ip link set wlx00127b216d36 up
+sudo ip link set wlx00127b216d1e up
+sudo ip link set wlx00127b216d41 up
 
 # set the correct channel for each device
-sudo iw wlx00127b216d3c set channel 1
-sudo iw wlx00127b216d43 set channel 6
-sudo iw wlx00127b216d31 set channel 11
+sudo iw wlx00127b216d36 set channel 1
+sudo iw wlx00127b216d1e set channel 6
+sudo iw wlx00127b216d41 set channel 11
 
 # -----------------------------------------------------------------------------
 # SCANNING
 
 # Start tcpdump
-sudo tcpdump -i wlx00127b216d3c type mgt subtype probe-req -w "channel-1".pcap 2> /dev/null &
-sudo tcpdump -i wlx00127b216d43 type mgt subtype probe-req -w "channel-6".pcap 2> /dev/null &
-sudo tcpdump -i wlx00127b216d43 type mgt subtype probe-req -w "channel-11".pcap 2> /dev/null &
+sudo tcpdump -i wlx00127b216d36 type mgt subtype probe-req -w "channel-1".pcap 2> /dev/null &
+sudo tcpdump -i wlx00127b216d1e type mgt subtype probe-req -w "channel-6".pcap 2> /dev/null &
+sudo tcpdump -i wlx00127b216d41 type mgt subtype probe-req -w "channel-11".pcap 2> /dev/null &
 
 # kill after desired time
 sleep "$CAPTURE_TIME"m;
@@ -95,6 +95,6 @@ done
 # combine pcap files into a single file and remove the uneccessary stuff
 mergecap -w $OFILE *.pcap
 
-sudo ip link set wlx00127b216d3c down
-sudo ip link set wlx00127b216d43 down
-sudo ip link set wlx00127b216d31 down
+sudo ip link set wlx00127b216d36 down
+sudo ip link set wlx00127b216d1e down
+sudo ip link set wlx00127b216d41 down
