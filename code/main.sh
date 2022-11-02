@@ -94,6 +94,7 @@ done
 
 # combine pcap files into a single file and remove the uneccessary stuff
 mergecap -w $OFILE *.pcap
+rm *.pcap
 
 sudo ip link set wlx00127b216d36 down
 sudo ip link set wlx00127b216d1e down
