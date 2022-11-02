@@ -76,9 +76,9 @@ sudo iw wlx00127b216d41 set channel 11
 # SCANNING
 
 # Start tcpdump
-sudo tcpdump -i wlx00127b216d36 type mgt subtype probe-req -w "channel-1".pcap 2> /dev/null &
-sudo tcpdump -i wlx00127b216d1e type mgt subtype probe-req -w "channel-6".pcap 2> /dev/null &
-sudo tcpdump -i wlx00127b216d41 type mgt subtype probe-req -w "channel-11".pcap 2> /dev/null &
+sudo tcpdump -i wlx00127b216d36 type mgt subtype probe-req -w "/tmp/channel-1.pcap" 2> /dev/null &
+sudo tcpdump -i wlx00127b216d1e type mgt subtype probe-req -w "/tmp/channel-6.pcap" 2> /dev/null &
+sudo tcpdump -i wlx00127b216d41 type mgt subtype probe-req -w "/tmp/channel-11.pcap" 2> /dev/null &
 
 # kill after desired time
 sleep "$CAPTURE_TIME"m;
@@ -93,8 +93,7 @@ done
 # CLEAN
 
 # combine pcap files into a single file and remove the uneccessary stuff
-mergecap -w $OFILE *.pcap
-rm *.pcap
+mergecap -w $OFILE /tmp/channel-1.pcap /tmp/channel-6.pcap /tmp/channel-11.pcap
 
 sudo ip link set wlx00127b216d36 down
 sudo ip link set wlx00127b216d1e down
