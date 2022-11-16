@@ -1,13 +1,16 @@
 #!/bin/bash
 
-# this script is run as a cron job (with root privileges)
+# this script captures network traffic from 3 dongles
+# this script is run as a cron job (with root privileges) to capture data every
+# hour of the day for (currently) 30 minutes. The pcap files are combined and
+# converted into a usable text file for analysis.
 
 # first let's get the date and the hour
 hour=$(date +%M)
 now=$(date +%d_%m_%y)
 log=/tmp/mylog.out
-CAPTURE_TIME=30
-SLEEP_TIME=35
+CAPTURE_TIME=30 # minutes
+SLEEP_TIME=35 # minutes
 
 
 # first capture of the day, prep for the rest of the day
@@ -56,4 +59,3 @@ if [[ $hour == "23" ]]; then
   ip link set wlx00127b216d1e down
   ip link set wlx00127b216d41 down
 fi
-
