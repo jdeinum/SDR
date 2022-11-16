@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 # this script is run through cron each day at midnight using the following
 # script
 # sudo crontab
