@@ -5,15 +5,14 @@
 hour=$(date +%M)
 now=$(date +%d_%m_%y)
 log=/tmp/mylog.out
-CAPTURE_TIME=15
+CAPTURE_TIME=30
+SLEEP_TIME=35
 
 
 
 # first capture of the day, prep for the rest of the day
 if [[ $hour == "00" ]]; then
-  rm /tmp/mylog.out
-
-  echo "$(date) Creating directories and turning on interfaces" > $log
+  echo "$(date) Creating directories and turning on interfaces" >> $log
   mkdir -p "/home/deinum/sdr/data/pcap/hourly/$now" 
   mkdir -p "/home/deinum/sdr/data/text/hourly/$now"
 
@@ -34,25 +33,25 @@ if [[ $hour == "00" ]]; then
   iw wlx00127b216d41 set channel 11
 fi
 
-echo "$(date) Starting scan" > $log
-timeout "$CAPTURE_TIME"s tcpdump -i wlx00127b216d36 type mgt subtype probe-req -w "/home/deinum/sdr/data/channel-1.pcap" &
-timeout "$CAPTURE_TIME"s tcpdump -i wlx00127b216d1e type mgt subtype probe-req -w "/home/deinum/sdr/data/channel-6.pcap" &
-timeout "$CAPTURE_TIME"s tcpdump -i wlx00127b216d41 type mgt subtype probe-req -w "/home/deinum/sdr/data/channel-11.pcap" &
-sleep "$CAPTURE_TIME"s
+echo "$(date) Starting scan" >> $log
+timeout "$CAPTURE_TIME"m tcpdump -i wlx00127b216d36 type mgt subtype probe-req -w "/home/deinum/sdr/data/channel-1.pcap" &
+timeout "$CAPTURE_TIME"m tcpdump -i wlx00127b216d1e type mgt subtype probe-req -w "/home/deinum/sdr/data/channel-6.pcap" &
+timeout "$CAPTURE_TIME"m tcpdump -i wlx00127b216d41 type mgt subtype probe-req -w "/home/deinum/sdr/data/channel-11.pcap" &
+sleep "$SLEEP_TIME"m
 
-echo "$(date) Scan Finished" > $log
+echo "$(date) Scan Finished" >> $log
 
 # combine pcap files into a single file and remove the uneccessary stuff
-echo "$(date) Merging PCAP files" > $log
+echo "$(date) Merging PCAP files" >> $log
 mergecap -w "/home/deinum/sdr/data/pcap/hourly/$now/sample$hour.pcap" /home/deinum/sdr/data/*.pcap
 rm /home/deinum/sdr/data/*.pcap
 
-echo "$(date) Converting PCAP to TEXT" > $log
+echo "$(date) Converting PCAP to TEXT" >> $log
 /home/deinum/sdr/code/filter.sh "/home/deinum/sdr/data/pcap/hourly/$now/sample$hour.pcap" "/home/deinum/sdr/data/text/hourly/$now/sample$hour.txt" 
 
 # last scan of the day
-if [[ $hour == "59" ]]; then
-  echo "$(date) Turning off interfaces" > $log
+if [[ $hour == "23" ]]; then
+  echo "$(date) Turning off interfaces" >> $log
   ip link set wlx00127b216d36 down
   ip link set wlx00127b216d1e down
   ip link set wlx00127b216d41 down
