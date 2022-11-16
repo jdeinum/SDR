@@ -1,0 +1,5 @@
+1667414808.758251000	2437	-86	5e:06:cf:ec:82:0c	7a:9f:97:b3:e2:13	3700		75:d0:c4:0d:bb:e9
+1667414809.374648000	2437	-93	ee:b0:36:82:b5:bc	ff:ff:ff:ff:ff:ff	1932	<MISSING>	ff:ff:ff:ff:ff:ff
+1667414809.395248000	2437	-91	ee:b0:36:82:b5:bc	ff:ff:ff:ff:ff:ff	1933	<MISSING>	ff:ff:ff:ff:ff:ff
+1667414809.452051000	2437	-89	1e:9d:26:88:08:a1	ff:ff:ff:ff:ff:ff	1027	555753	ff:ff:ff:ff:ff:ff
+1667414809.476201000	2437	-93	1e:9d:26:88:08:a1	ff:ff:ff:ff:ff:ff	1028	555753	ff:ff:ff:ff:ff:ff
