@@ -52,6 +52,9 @@ iw wlx00127b216d41 set channel 11
 tcpdump -i wlx00127b216d36 type mgt subtype probe-req -w "/home/deinum/sdr/code/channel-1.pcap" &
 tcpdump -i wlx00127b216d1e type mgt subtype probe-req -w "/home/deinum/sdr/code/channel-6.pcap" &
 tcpdump -i wlx00127b216d41 type mgt subtype probe-req -w "/home/deinum/sdr/code/channel-11.pcap" &
+tcpdump -i wlx00127b216d36 type mgt subtype probe-req -w "channel-1.pcap" &
+tcpdump -i wlx00127b216d1e type mgt subtype probe-req -w "channel-6.pcap" &
+tcpdump -i wlx00127b216d41 type mgt subtype probe-req -w "channel-11.pcap" &
 
 # kill after desired time
 sleep "$CAPTURE_TIME"m;

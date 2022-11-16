@@ -1,0 +1,41 @@
+A list of other works and some things I found interesting.
+
+- WPS sections list more data around the device making it easier to identify
+- WPS section contains the UUID-E which is based on the devices universal MAC
+- WPS is only really used by devices without a screen like printers... so not
+  really that useful
+
+
+  address which does not change. (you can even reverse engineer the uuide to the
+  original universal MAC address)
+- Supported transfer rates, vendor information, sequence numbers, interarrival
+  times
+- MAC addresses are only changed for each scan (which is done according to the
+  android scan plan)
+- If sequence numbers are not random, we expect the sequence numbers to be
+  around the same value.
+
+-  We could use a honeypot attack to get a device to give away its real MAC
+
+- could use carrier offset to uniquely identify devices
+
+- Can send CTS messages to a devices "Real" MAC address. If it is the correct
+  address then they will receive a CTS. The problem here is that we need to
+  probe the correct address, and well, what are the odds of getting the right
+  one? How do we know which address to associate the given CTS response with?
+
+
+
+
+
+How about a system that uses all of the following:
+- Checks if MAC randomization if even used
+- Carrier Frequency Offset 
+- Sequence Number
+- Preferred Network List
+- Supported Transfer Rates
+- Vendor Information
+- Inter-Arrival Times
+
+
+
