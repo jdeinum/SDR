@@ -7,6 +7,8 @@
 
 
 
+
+
 # first let's get the date and the hour
 hour=$(date +%M)
 now=$(date +%d_%m_%y)
