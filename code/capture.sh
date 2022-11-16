@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# this script is run as a cron job (with root privileges)
 
 # first let's get the date and the hour
 hour=$(date +%M)
@@ -7,7 +8,6 @@ now=$(date +%d_%m_%y)
 log=/tmp/mylog.out
 CAPTURE_TIME=30
 SLEEP_TIME=35
-
 
 
 # first capture of the day, prep for the rest of the day
