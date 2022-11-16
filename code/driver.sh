@@ -13,7 +13,7 @@ mkdir -p "/home/deinum/sdr/data/text/hourly/$now" 2>/tmp/myout.log
 for ((i = 0; i < 24; i++)); do
   /home/deinum/sdr/code/main.sh -c 1 -f "/home/deinum/sdr/data/pcap/hourly/$now/sample$i.pcap" 2>/tmp/myout.log
   echo "Done sample $i" >> /tmp/myout.log
-  sleep 1m
+  sleep 30m
 done
 
 for ((i = 0; i < 24; i++)); do
