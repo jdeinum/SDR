@@ -5,6 +5,8 @@
 # hour of the day for (currently) 30 minutes. The pcap files are combined and
 # converted into a usable text file for analysis.
 
+
+
 # first let's get the date and the hour
 hour=$(date +%M)
 now=$(date +%d_%m_%y)
