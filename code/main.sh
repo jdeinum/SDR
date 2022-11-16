@@ -49,28 +49,17 @@ iw wlx00127b216d41 set channel 11
 # SCANNING
 
 # Start tcpdump
-tcpdump -i wlx00127b216d36 type mgt subtype probe-req -w "/home/deinum/sdr/code/channel-1.pcap" &
-tcpdump -i wlx00127b216d1e type mgt subtype probe-req -w "/home/deinum/sdr/code/channel-6.pcap" &
-tcpdump -i wlx00127b216d41 type mgt subtype probe-req -w "/home/deinum/sdr/code/channel-11.pcap" &
-tcpdump -i wlx00127b216d36 type mgt subtype probe-req -w "channel-1.pcap" &
-tcpdump -i wlx00127b216d1e type mgt subtype probe-req -w "channel-6.pcap" &
-tcpdump -i wlx00127b216d41 type mgt subtype probe-req -w "channel-11.pcap" &
-
-# kill after desired time
-sleep "$CAPTURE_TIME"m;
-pid=(`pidof tcpdump`)
-for id in ${pid[@]};
-do
-    kill -SIGINT $id
-done
+timeout "$CAPTURE_TIME"m tcpdump -i wlx00127b216d36 type mgt subtype probe-req -w "/home/deinum/sdr/data/channel-1.pcap" &
+timeout "$CAPTURE_TIME"m tcpdump -i wlx00127b216d1e type mgt subtype probe-req -w "/home/deinum/sdr/data/channel-6.pcap" &
+timeout "$CAPTURE_TIME"m tcpdump -i wlx00127b216d41 type mgt subtype probe-req -w "/home/deinum/sdr/data/channel-11.pcap" &
 
 
 # -----------------------------------------------------------------------------
 # CLEAN
 
 # combine pcap files into a single file and remove the uneccessary stuff
-mergecap -w $OFILE /home/deinum/sdr/code/*.pcap
-rm /home/deinum/sdr/code/*.pcap
+mergecap -w $OFILE /home/deinum/sdr/data/*.pcap
+rm /home/deinum/sdr/data/*.pcap
 
 ip link set wlx00127b216d36 down
 ip link set wlx00127b216d1e down
