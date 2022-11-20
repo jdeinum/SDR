@@ -6,15 +6,12 @@
 # converted into a usable text file for analysis.
 
 
-
-
-
 # first let's get the date and the hour
-hour=$(date +%M)
+hour=$(date +%H)
 now=$(date +%d_%m_%y)
 log=/tmp/mylog.out
-CAPTURE_TIME=30 # minutes
-SLEEP_TIME=35 # minutes
+CAPTURE_TIME=55
+SLEEP_TIME=56
 
 
 # first capture of the day, prep for the rest of the day
