@@ -1,12 +1,11 @@
 #!/bin/bash
 
-
 # first let's get the date and the hour
-hour=$(date +%M)
+hour=$(date +%H)
 now=$(date +%d_%m_%y)
 log=/tmp/mylog.out
-CAPTURE_TIME=30
-SLEEP_TIME=35
+CAPTURE_TIME=55
+SLEEP_TIME=56
 
 
 
@@ -56,4 +55,6 @@ if [[ $hour == "23" ]]; then
   ip link set wlx00127b216d1e down
   ip link set wlx00127b216d41 down
 fi
+
+echo "$(date) Done with sample $hour" >> $log
 
