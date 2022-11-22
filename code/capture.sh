@@ -1,24 +1,17 @@
 #!/bin/bash
 
-<<<<<<< HEAD
-=======
 # this script captures network traffic from 3 dongles
 # this script is run as a cron job (with root privileges) to capture data every
 # hour of the day for (currently) 30 minutes. The pcap files are combined and
 # converted into a usable text file for analysis.
 
 
->>>>>>> e20ee30d734413d26642ee1bb0e8f85922864423
 # first let's get the date and the hour
 hour=$(date +%H)
 now=$(date +%d_%m_%y)
 log=/tmp/mylog.out
 CAPTURE_TIME=55
 SLEEP_TIME=56
-<<<<<<< HEAD
-
-=======
->>>>>>> e20ee30d734413d26642ee1bb0e8f85922864423
 
 
 # first capture of the day, prep for the rest of the day
@@ -60,6 +53,12 @@ rm /home/deinum/sdr/data/*.pcap
 echo "$(date) Converting PCAP to TEXT" >> $log
 /home/deinum/sdr/code/filter.sh "/home/deinum/sdr/data/pcap/hourly/$now/sample$hour.pcap" "/home/deinum/sdr/data/text/hourly/$now/sample$hour.txt" 
 
+
+echo "$(date) Adding previous channel using AWK" >> $log
+cat "/home/deinum/sdr/data/text/hourly/$now/sample$hour.txt" | 
+mawk 'NR == 1 {prev_channel=$2; start_time=$1} NR > 1 {printf "%f %f %d %d %d %d %s\n" ,$1, $1 - start_time, $2, prev_channel, $3, $6, $4; prev_channel=$2}' > /tmp/clean.txt
+mv /tmp/clean.txt "/home/deinum/sdr/data/text/hourly/$now/sample$hour.txt" && rm /tmp/clean.txt
+
 # last scan of the day
 if [[ $hour == "23" ]]; then
   echo "$(date) Turning off interfaces" >> $log
@@ -67,9 +66,6 @@ if [[ $hour == "23" ]]; then
   ip link set wlx00127b216d1e down
   ip link set wlx00127b216d41 down
 fi
-<<<<<<< HEAD
 
 echo "$(date) Done with sample $hour" >> $log
 
-=======
->>>>>>> e20ee30d734413d26642ee1bb0e8f85922864423

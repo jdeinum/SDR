@@ -1,12 +1,8 @@
 ./.reports/
-<<<<<<< HEAD
 ./data/pcap/sample21.pcap
 ./data/pcap/sample22.pcap
 ./data/pcap/sample23.pcap
 ./data/text/sample21.txt
 ./data/text/sample22.txt
 ./data/text/sample23.txt
-=======
-./.old/
-./.experiement
->>>>>>> refs/remotes/origin/master
+images/
