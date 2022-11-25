@@ -6,6 +6,4 @@ tshark -r $1 -T fields \
   -e wlan_radio.signal_dbm \
   -e wlan.ta \
   -e wlan.ra \
-  -e wlan.seq \
-  -e wlan.ssid \
-  -e wlan.bssid > $2
+  -e wlan.seq > $2
