@@ -10,8 +10,8 @@
 hour=$(date +%H)
 now=$(date +%d_%m_%y)
 log=/tmp/mylog.out
-CAPTURE_TIME=55
-SLEEP_TIME=56
+CAPTURE_TIME=45
+SLEEP_TIME=46
 
 
 # first capture of the day, prep for the rest of the day
@@ -57,7 +57,7 @@ echo "$(date) Converting PCAP to TEXT" >> $log
 echo "$(date) Adding previous channel using AWK" >> $log
 cat "/home/deinum/sdr/data/text/hourly/$now/sample$hour.txt" | 
 mawk 'NR == 1 {prev_channel=$2; start_time=$1} NR > 1 {printf "%f %f %d %d %d %d %s\n" ,$1, $1 - start_time, $2, prev_channel, $3, $6, $4; prev_channel=$2}' > /tmp/clean.txt
-mv /tmp/clean.txt "/home/deinum/sdr/data/text/hourly/$now/sample$hour.txt" && rm /tmp/clean.txt
+mv /tmp/clean.txt "/home/deinum/sdr/data/text/hourly/$now/sample$hour.txt" 
 chown -R deinum "/home/deinum/sdr/data/text/hourly/$now/sample$hour.txt"
 
 # last scan of the day
