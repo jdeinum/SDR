@@ -48,7 +48,9 @@ echo "$(date) Scan Finished" >> $log
 # combine pcap files into a single file and remove the uneccessary stuff
 echo "$(date) Merging PCAP files" >> $log
 mergecap -w "/home/deinum/sdr/data/pcap/hourly/$now/sample$hour.pcap" /home/deinum/sdr/data/*.pcap
-rm /home/deinum/sdr/data/*.pcap
+rm /home/deinum/sdr/data/channel-1.pcap
+rm /home/deinum/sdr/data/channel-6.pcap
+rm /home/deinum/sdr/data/channel-11.pcap
 
 echo "$(date) Converting PCAP to TEXT" >> $log
 /home/deinum/sdr/code/filter.sh "/home/deinum/sdr/data/pcap/hourly/$now/sample$hour.pcap" "/home/deinum/sdr/data/text/hourly/$now/sample$hour.txt" 
