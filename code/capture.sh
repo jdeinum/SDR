@@ -58,7 +58,7 @@ echo "$(date) Converting PCAP to TEXT" >> $log
 
 echo "$(date) Adding previous channel using AWK" >> $log
 cat "/home/deinum/sdr/data/text/hourly/$now/sample$hour.txt" | 
-mawk -f "/home/deinum/sdr/code/clean.awk"  > /tmp/clean.txt
+/home/deinum/sdr/code/clean.sh > /tmp/clean.txt
 mv /tmp/clean.txt "/home/deinum/sdr/data/text/hourly/$now/sample$hour.txt" 
 chown -R deinum "/home/deinum/sdr/data/text/hourly/$now/sample$hour.txt"
 

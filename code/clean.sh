@@ -7,4 +7,4 @@ sort -k4,4 -k1,1n |
 
 # now add the previous channel and the time relative to the first packet seen
 # from an address
-mawk -f /home/deinum/sdr/code/clean.awk
+mawk -f /home/deinum/Work/sdr/code/clean.awk
